@@ -17,5 +17,20 @@ public class WaitUtil {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(text);
     }
+
+    public static void waitForVisibility(WebDriver driver, By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public static String getTextFromElement(WebDriver driver, By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+    }
+
+    public static boolean waitForInvisibility(WebDriver driver, By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
 }
 

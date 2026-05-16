@@ -26,7 +26,7 @@ public class InventoryPage {
 
     // Cart
     By cartIcon = By.className("shopping_cart_link");
-    By cartBadge = By.className("shopping_cart_badge");
+    public By cartBadge = By.className("shopping_cart_badge");
 
     // Constructor
     public InventoryPage(WebDriver driver) {
@@ -57,18 +57,14 @@ public class InventoryPage {
     // Get cart count
     public int getCartCount() {
         try {
-            String count = wait
-                    .until(ExpectedConditions.visibilityOfElementLocated(cartBadge))
-                    .getText();
-            return Integer.parseInt(count);
-        } catch (Exception e) {
-            return 0; // cart empty
+            String countText = WaitUtil.getTextFromElement(driver, cartBadge);
+            return Integer.parseInt(countText.trim());
         }
-    }
+        catch (Exception e) {
+            return 0;
+        }}
 
     // Open cart page
     public void openCart() {
         WaitUtil.clickElement(driver, cartIcon);
     }}
-
-

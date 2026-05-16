@@ -36,9 +36,7 @@ public class CartPage {
     // Get product name from cart
     public String getProductNameFromCart() {
         try {
-            return wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(productName)
-            ).getText();
+            return WaitUtil.getTextFromElement(driver,productName);
         } catch (Exception e) {
             return null;
         }
