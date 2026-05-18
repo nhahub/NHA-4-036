@@ -1,14 +1,13 @@
-package pages;
+package SwagLabs.pages;
 
-import java.time.Duration;
 import java.util.List;
 
+import SwagLabs.utils.ElementActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.WaitUtil;
 
 public class CartPage {
 
@@ -36,7 +35,7 @@ public class CartPage {
     // Get product name from cart
     public String getProductNameFromCart() {
         try {
-            return WaitUtil.getTextFromElement(driver,productName);
+            return ElementActions.get_txt(driver,productName);
         } catch (Exception e) {
             return null;
         }
@@ -48,7 +47,7 @@ public class CartPage {
     }
 
     public void removeProductFromCart() {
-        WaitUtil.clickElement(driver, removeBtn);
+        ElementActions.click_element(driver, removeBtn);
     }
 
     public boolean isCartEmpty() {

@@ -1,11 +1,13 @@
-package pages;
+package SwagLabs.pages;
 
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.WaitUtil;
+import SwagLabs.utils.ElementActions;
+
+import javax.lang.model.element.Element;
 
 public class CheckoutPage {
 
@@ -34,7 +36,7 @@ public class CheckoutPage {
     }
 
     public void clickContinue() {
-        WaitUtil.clickElement(driver, continueBtn);
+        ElementActions.click_element(driver, continueBtn);
     }
 }
 

@@ -1,12 +1,10 @@
-package pages;
-
-import java.time.Duration;
+package SwagLabs.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.WaitUtil;
+import SwagLabs.utils.ElementActions;
+import org.testng.Assert;
 
 public class InventoryPage {
 
@@ -36,28 +34,28 @@ public class InventoryPage {
     // Page Actions
     // Open menu
     public void clickMenu() {
-        WaitUtil.clickElement(driver, menuButton);
+        ElementActions.click_element(driver, menuButton);
     }
 
     // Logout
     public void clickLogout() {
-        WaitUtil.clickElement(driver, logoutLink);
+        ElementActions.click_element(driver, logoutLink);
     }
 
     // Add first product to cart
     public void addFirstProductToCart() {
-        WaitUtil.clickElement(driver, firstAddToCartBtn);
+        ElementActions.click_element(driver, firstAddToCartBtn);
     }
 
     // Remove product from inventory page
     public void removeFirstProductFromInventory() {
-        WaitUtil.clickElement(driver, removeFirstProductBtn);
+        ElementActions.click_element(driver, removeFirstProductBtn);
     }
 
     // Get cart count
     public int getCartCount() {
         try {
-            String countText = WaitUtil.getTextFromElement(driver, cartBadge);
+            String countText = ElementActions.get_txt(driver, cartBadge);
             return Integer.parseInt(countText.trim());
         }
         catch (Exception e) {
@@ -66,5 +64,12 @@ public class InventoryPage {
 
     // Open cart page
     public void openCart() {
-        WaitUtil.clickElement(driver, cartIcon);
-    }}
+        ElementActions.click_element(driver, cartIcon);
+    }
+
+    // Assertions
+    public void assert_successful_Logout(){
+        Assert.assertEquals(driver.getCurrentUrl(), ("https://www.saucedemo.com/"));
+    }
+
+}
