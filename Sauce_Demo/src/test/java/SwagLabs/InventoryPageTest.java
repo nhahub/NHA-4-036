@@ -1,4 +1,5 @@
 package SwagLabs;
+
 import SwagLabs.base.BaseTest;
 import SwagLabs.pages.InventoryPage;
 import org.testng.annotations.BeforeMethod;
@@ -8,7 +9,77 @@ public class InventoryPageTest extends BaseTest {
     public InventoryPage inventoryPage;
 
     //Tests
-    @Test
+    @Test(priority = 1)
+    public void successful_logo_existence() {
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
+        inventoryPage.assert_logo_exist();
+    }
+
+    @Test(priority = 2)
+    public void successful_burger_menu_existence_and_clickability() {
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
+        inventoryPage.clickMenu();
+        inventoryPage.assert_burger_menu_is_clickable();
+    }
+
+    @Test(priority = 3)
+    public void successful_all_items_existence_and_clickability() {
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
+        inventoryPage.openCart();
+        inventoryPage.clickMenu();
+        inventoryPage.click_AllItems();
+        inventoryPage.assert_All_items_is_clickable();
+    }
+
+    @Test(priority = 4)
+    public void successful_About_existence_and_clickability() {
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
+        inventoryPage.clickMenu();
+        inventoryPage.click_About();
+        inventoryPage.assert_About_is_clickable();
+    }
+
+    @Test(priority = 5)
+    public void addToCartTest() {
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
+        // Add product to cart
+        inventoryPage.addFirstProductToCart();
+        inventoryPage.assert_successful_addition_to_cart();
+    }
+
+    @Test(priority = 6)
+    public void removeProductFromInventoryTest() {
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
+        // Add product & go to cart
+        inventoryPage.addFirstProductToCart();
+        inventoryPage.removeFirstProductFromInventory();
+        inventoryPage.assert_successful_removal_from_cart();
+    }
+
+    @Test(priority = 7)
+    public void successful_Reset_App_State_existence_and_clickability() {
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
+        inventoryPage.addFirstProductToCart();
+        inventoryPage.clickMenu();
+        inventoryPage.click_ResetAppState();
+        inventoryPage.assert_Reset_App_State_is_clickable();
+    }
+
+    @Test(priority = 8)
     public void logoutTest() {
         // Valid Login
         loginPage.login("standard_user", "secret_sauce");
@@ -19,29 +90,7 @@ public class InventoryPageTest extends BaseTest {
         inventoryPage.assert_successful_Logout();
     }
 
-    @Test
-    public void addToCartTest() {
-        // Valid Login
-        loginPage.login("standard_user", "secret_sauce");
-        loginPage.assert_successful_Login();
-        // Add product to cart
-        inventoryPage.addFirstProductToCart();
-        inventoryPage.assert_successful_addition_to_cart();
-    }
-
-    @Test
-    public void removeProductFromInventoryTest() {
-        // Valid Login
-        loginPage.login("standard_user", "secret_sauce");
-        loginPage.assert_successful_Login();
-        // Add product & go to cart
-        inventoryPage.addFirstProductToCart();
-        inventoryPage.assert_successful_addition_to_cart();
-        inventoryPage.removeFirstProductFromInventory();
-        inventoryPage.assert_successful_removal_from_cart();
-    }
-
-    @Test
+    @Test(priority = 9)
     public void clickCartIconTest() {
         // Valid Login
         loginPage.login("standard_user", "secret_sauce");
@@ -57,7 +106,5 @@ public class InventoryPageTest extends BaseTest {
         super.SetUp();
         inventoryPage = new InventoryPage(driver);
     }
-
-
 
 }

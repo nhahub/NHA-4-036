@@ -29,11 +29,4 @@ public class ElementActions {
         Scroll.scroll_to_element(driver, locator);
         return driver.findElement(locator).getText();
     }
-
-    public static void successful_login(WebDriver driver){
-        lp = new LoginPage(driver);
-        lp.login("standard_user", "secret_sauce");
-
-    }
-
 }
