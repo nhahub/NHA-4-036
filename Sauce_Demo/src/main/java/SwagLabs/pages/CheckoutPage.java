@@ -3,6 +3,7 @@ package SwagLabs.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import SwagLabs.utils.ElementActions;
+import org.testng.Assert;
 
 
 public class CheckoutPage {
@@ -29,6 +30,11 @@ public class CheckoutPage {
 
     public void clickContinue() {
         ElementActions.click_element(driver, continueBtn);
+    }
+
+    //Assertion
+    public void assert_continueBtn_clickability(){
+        Assert.assertEquals(driver.getCurrentUrl(), ("https://www.saucedemo.com/checkout-step-two.html"));
     }
 
 }

@@ -14,7 +14,6 @@ public class CheckoutTest extends BaseTest {
     public CheckoutPage checkoutPage;
     public CheckoutOverviewPage checkoutOverviewPage;
 
-
     @Test
     public void checkoutFlowTest() {
         // Valid Login
@@ -24,18 +23,18 @@ public class CheckoutTest extends BaseTest {
         // Add product & go to cart
         inventoryPage.addFirstProductToCart();
         inventoryPage.openCart();
+        inventoryPage.assert_cart_icon_is_clickable();
 
         cartPage.clickCheckout();
+        cartPage.assert_checkout_clickability();
 
         checkoutPage.enterCheckoutDetails("Vironica", "Youssef", "15423");
         checkoutPage.clickContinue();
+        checkoutPage.assert_continueBtn_clickability();
 
         // Finish order
         checkoutOverviewPage.clickFinish();
-
-        // Validation
         checkoutOverviewPage.assert_successful_checkout();
-
     }
     @BeforeMethod
     @Override

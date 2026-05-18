@@ -33,7 +33,6 @@ public class CartPage {
             return null;
         }
     }
-
     public void clickCheckout() {
         ElementActions.click_element(driver, checkoutBtn);
     }
@@ -44,6 +43,9 @@ public class CartPage {
     }
     public void assert_isCartEmpty() {
         Assert.assertTrue(driver.findElements(cartItems).isEmpty());
+    }
+    public void assert_checkout_clickability(){
+        Assert.assertEquals(driver.getCurrentUrl(), ("https://www.saucedemo.com/checkout-step-one.html"));
     }
 }
 

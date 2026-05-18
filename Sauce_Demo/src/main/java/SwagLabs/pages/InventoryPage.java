@@ -15,7 +15,7 @@ public class InventoryPage {
     private final By logoutLink = By.id("logout_sidebar_link");
 
     // Products
-    private final By firstAddToCartBtn = By.xpath("(//button[contains(text(),'Add to cart')])[1]");
+    private final By addFirstAddToCartBtn = By.xpath("(//button[contains(text(),'Add to cart')])[1]");
     private final By removeFirstProductBtn = By.xpath("(//button[contains(text(),'Remove')])[1]");
 
     // Cart
@@ -40,7 +40,7 @@ public class InventoryPage {
 
     // Add first product to cart
     public void addFirstProductToCart() {
-        ElementActions.click_element(driver, firstAddToCartBtn);
+        ElementActions.click_element(driver, addFirstAddToCartBtn);
     }
 
     // Remove product from inventory page
@@ -48,38 +48,29 @@ public class InventoryPage {
         ElementActions.click_element(driver, removeFirstProductBtn);
     }
 
-    // Get cart count
-    public int getCartCount() {
-        try {
-            String countText = ElementActions.get_txt(driver, cartBadge);
-            return Integer.parseInt(countText.trim());
-        }
-        catch (Exception e) {
-            return 0;
-        }}
-
     // Open cart page
     public void openCart() {
         ElementActions.click_element(driver, cartIcon);
     }
 
     // Assertions
-    //for logout
-    public void assert_successful_Logout(){
+    public void assert_successful_Logout() {
         Assert.assertEquals(driver.getCurrentUrl(), ("https://www.saucedemo.com/"));
     }
-    //rest of assertions
-    public void assert_successful_addition_to_cart(){
-        int cartCount = getCartCount();
+
+    public void assert_successful_addition_to_cart() {
+        Assert.assertTrue(Wait.wait_to_exist(driver, cartBadge).isDisplayed());
+
+        int cartCount = Integer.parseInt((driver.findElement(cartBadge).getText()).trim());
         System.out.println("Cart count: " + cartCount);
         Assert.assertEquals(cartCount, 1);
     }
 
-    //rest of assertions
-    public void assert_successful_removal_from_cart(){
+    public void assert_successful_removal_from_cart() {
         Wait.wait_to_hide(driver, cartBadge);
-        int cartCount = getCartCount();
-        System.out.println("Cart count: " + cartCount);
-        Assert.assertEquals(cartCount, 0);
+    }
+
+    public void assert_cart_icon_is_clickable() {
+        Assert.assertEquals(driver.getCurrentUrl(), ("https://www.saucedemo.com/cart.html"));
     }
 }
