@@ -1,42 +1,35 @@
 package SwagLabs.pages;
 
-import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import SwagLabs.utils.ElementActions;
 
-import javax.lang.model.element.Element;
 
 public class CheckoutPage {
 
-    WebDriver driver;
-    WebDriverWait wait;
+    private final WebDriver driver;
 
     // Locators
+    private final By firstName = By.id("first-name");
+    private final By lastName = By.id("last-name");
+    private final By postalCode = By.id("postal-code");
+    private final By continueBtn = By.id("continue");
 
-    By firstName = By.id("first-name");
-    By lastName = By.id("last-name");
-    By postalCode = By.id("postal-code");
-    By continueBtn = By.id("continue");
-
+    // constructor
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-
-
+    // Actions
     public void enterCheckoutDetails(String fName, String lName, String zip) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(firstName))
-                .sendKeys(fName);
-        driver.findElement(lastName).sendKeys(lName);
-        driver.findElement(postalCode).sendKeys(zip);
+        ElementActions.send_date(driver, firstName, fName);
+        ElementActions.send_date(driver, lastName, lName);
+        ElementActions.send_date(driver, postalCode, zip);
     }
 
     public void clickContinue() {
         ElementActions.click_element(driver, continueBtn);
     }
+
 }
 

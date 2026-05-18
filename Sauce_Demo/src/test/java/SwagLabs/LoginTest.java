@@ -1,4 +1,5 @@
 package SwagLabs;
+
 import org.testng.annotations.Test;
 
 import SwagLabs.base.BaseTest;
@@ -23,6 +24,7 @@ public class LoginTest extends BaseTest {
         loginPage.login("", "secret_sauce");
         loginPage.assert_empty_username_field_Login();
     }
+
     @Test(priority = 4)
     public void invalidLoginTest_empty_password_field() {
         loginPage.login("standard_user", "");

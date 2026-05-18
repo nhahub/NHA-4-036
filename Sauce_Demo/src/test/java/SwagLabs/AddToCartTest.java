@@ -1,40 +1,28 @@
 package SwagLabs;
+import SwagLabs.pages.*;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import SwagLabs.base.BaseTest;
-import SwagLabs.pages.InventoryPage;
-import SwagLabs.pages.LoginPage;
-import SwagLabs.utils.AssertUtil;
-import SwagLabs.utils.Wait;
 
 public class AddToCartTest extends BaseTest {
-
+    public InventoryPage inventoryPage;
     @Test
     public void addToCartTest() {
 
-        // Login
-        LoginPage login = new LoginPage(driver);
-        login.enterUsername("standard_user");
-        login.enterPassword("secret_sauce");
-        login.clickLogin();
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
 
         // Add product to cart
-        InventoryPage inventory = new InventoryPage(driver);
-        inventory.addFirstProductToCart();
+        inventoryPage.addFirstProductToCart();
+        inventoryPage.assert_successful_addition_to_cart();
+    }
 
-        Wait.wait_to_be_visible(driver, inventory.cartBadge);
-        int cartCount = inventory.getCartCount();
-        System.out.println("Cart count: " + cartCount);
-
-// Validation
-        AssertUtil.assertTrue(
-                cartCount == 1,
-                "Product not added to cart",
-                driver,
-                "AddToCartFailure"
-        );
-
-
-
+    @BeforeMethod
+    @Override
+    public void SetUp() {
+        super.SetUp();
+        inventoryPage = new InventoryPage(driver);
     }
 }

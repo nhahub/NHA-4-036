@@ -1,49 +1,40 @@
 package SwagLabs;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import SwagLabs.base.BaseTest;
 import SwagLabs.pages.CartPage;
 import SwagLabs.pages.InventoryPage;
-import SwagLabs.pages.LoginPage;
-import SwagLabs.utils.AssertUtil;
 
 public class RemoveFromCartTest extends BaseTest {
 
+    public InventoryPage inventoryPage;
+    CartPage cartPage;
+
     @Test
     public void removeFromCartTest() {
-
-
-        // Login
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.enterUsername("standard_user");
-        loginPage.enterPassword("secret_sauce");
-        loginPage.clickLogin();
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
 
         // Add product & open cart
-        InventoryPage inventoryPage = new InventoryPage(driver);
         inventoryPage.addFirstProductToCart();
         inventoryPage.openCart();
-
-        CartPage cartPage = new CartPage(driver);
-
-        // Validate cart not empty
-        AssertUtil.assertTrue(
-                cartPage.isCartNotEmpty(),
-                "Cart is empty before removal",
-                driver,
-                "CartEmptyBeforeRemove"
-        );
+        cartPage.assert_isCartNotEmpty();
+        String product_name = cartPage.getProductNameFromCart();
+        System.out.println("ProductName: " + product_name);
 
         // Remove product
         cartPage.removeProductFromCart();
+        cartPage.assert_isCartEmpty();
 
-        // Validate cart empty
-        AssertUtil.assertTrue(
-                cartPage.isCartEmpty(),
-                "Cart not empty after removal",
-                driver,
-                "CartNotEmptyAfterRemove"
-        );
+    }
 
+    @BeforeMethod
+    @Override
+    public void SetUp() {
+        super.SetUp();
+        inventoryPage = new InventoryPage(driver);
+        cartPage = new CartPage(driver);
     }
 }

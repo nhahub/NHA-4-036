@@ -1,30 +1,26 @@
 package SwagLabs.pages;
 
+import SwagLabs.utils.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import SwagLabs.utils.ElementActions;
 import org.testng.Assert;
 
 public class InventoryPage {
 
-    WebDriver driver;
-    WebDriverWait wait;
-
-
-    // Constructor
+    private final WebDriver driver;
 
     // Menu & Logout
-    By menuButton = By.id("react-burger-menu-btn");
-    By logoutLink = By.id("logout_sidebar_link");
+    private final By menuButton = By.id("react-burger-menu-btn");
+    private final By logoutLink = By.id("logout_sidebar_link");
 
     // Products
-    By firstAddToCartBtn = By.xpath("(//button[contains(text(),'Add to cart')])[1]");
-    By removeFirstProductBtn = By.xpath("(//button[contains(text(),'Remove')])[1]");
+    private final By firstAddToCartBtn = By.xpath("(//button[contains(text(),'Add to cart')])[1]");
+    private final By removeFirstProductBtn = By.xpath("(//button[contains(text(),'Remove')])[1]");
 
     // Cart
-    By cartIcon = By.className("shopping_cart_link");
-    public By cartBadge = By.className("shopping_cart_badge");
+    private final By cartIcon = By.className("shopping_cart_link");
+    private final By cartBadge = By.className("shopping_cart_badge");
 
     // Constructor
     public InventoryPage(WebDriver driver) {
@@ -68,8 +64,22 @@ public class InventoryPage {
     }
 
     // Assertions
+    //for logout
     public void assert_successful_Logout(){
         Assert.assertEquals(driver.getCurrentUrl(), ("https://www.saucedemo.com/"));
     }
+    //rest of assertions
+    public void assert_successful_addition_to_cart(){
+        int cartCount = getCartCount();
+        System.out.println("Cart count: " + cartCount);
+        Assert.assertEquals(cartCount, 1);
+    }
 
+    //rest of assertions
+    public void assert_successful_removal_from_cart(){
+        Wait.wait_to_hide(driver, cartBadge);
+        int cartCount = getCartCount();
+        System.out.println("Cart count: " + cartCount);
+        Assert.assertEquals(cartCount, 0);
+    }
 }

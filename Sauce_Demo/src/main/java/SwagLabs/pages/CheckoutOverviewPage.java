@@ -1,31 +1,30 @@
 package SwagLabs.pages;
 
-import java.time.Duration;
+import SwagLabs.utils.ElementActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class CheckoutOverviewPage {
 
-    WebDriver driver;
-    WebDriverWait wait;
+    private final WebDriver driver;
 
     // Locators
-    By finishBtn = By.id("finish");
-    By successMsg = By.className("complete-header");
+    private final By finishBtn = By.id("finish");
+    private final By successMsg = By.className("complete-header");
 
+    // constructor
     public CheckoutOverviewPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
+    // Actions
     public void clickFinish() {
-        wait.until(ExpectedConditions.elementToBeClickable(finishBtn)).click();
+        ElementActions.click_element(driver, finishBtn);
     }
 
-    public String getSuccessMessage() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(successMsg))
-                .getText();
+    // Assertion
+    public void assert_successful_checkout(){
+        Assert.assertTrue(ElementActions.get_txt(driver, successMsg).contains("Thank you for your order"));
     }
 }
