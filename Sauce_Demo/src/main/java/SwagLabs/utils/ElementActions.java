@@ -12,7 +12,7 @@ public class ElementActions {
     private ElementActions(){}
     static LoginPage lp;
 
-    public static void send_date(WebDriver driver, By locator, String data){
+    public static void send_data(WebDriver driver, By locator, String data){
         wait_to_be_visible(driver, locator);
         scroll_to_element(driver, locator);
         driver.findElement(locator).sendKeys(data);

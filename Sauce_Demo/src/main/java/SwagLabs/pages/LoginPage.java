@@ -23,11 +23,11 @@ public class LoginPage {
 
     // Page Actions
     public void enterUsername(String user) {
-        ElementActions.send_date(driver, username, user);
+        ElementActions.send_data(driver, username, user);
     }
 
     public void enterPassword(String pass) {
-        ElementActions.send_date(driver, password, pass);
+        ElementActions.send_data(driver, password, pass);
     }
 
     public void clickLogin() {
@@ -55,6 +55,10 @@ public class LoginPage {
 
     public void assert_empty_password_field_Login(){
         Assert.assertEquals(ElementActions.get_txt(driver, error_msg), "Epic sadface: Password is required");
+    }
+
+    public void assert_test_Login_Page_Shows_SwagLabs_Title(){
+        Assert.assertEquals(driver.getTitle(), "Swag Labs");
     }
 
 }

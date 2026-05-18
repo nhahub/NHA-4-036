@@ -4,6 +4,8 @@ import SwagLabs.utils.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import SwagLabs.utils.ElementActions;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 public class InventoryPage {
@@ -28,6 +30,7 @@ public class InventoryPage {
     // Cart
     private final By cartIcon = By.className("shopping_cart_link");
     private final By cartBadge = By.className("shopping_cart_badge");
+
 
     // Constructor
     public InventoryPage(WebDriver driver) {
@@ -74,6 +77,11 @@ public class InventoryPage {
     public void openCart() {
         ElementActions.click_element(driver, cartIcon);
     }
+
+
+
+//Select dropdown = new Select(dropdownElement);
+//    dropdown.selectByValue(value);}
 
     // Assertions
     public void assert_logo_exist() {
