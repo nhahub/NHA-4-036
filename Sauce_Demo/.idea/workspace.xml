@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e5694f0c-9d09-4012-b156-1635faa800bc" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="3DrhDwHoUvUNA3hPeFPzuIV5iGO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;TestNG.AddToCartTest.addToCartTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddToCartTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CartTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CheckoutTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.InventoryPageTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.InventoryPageTest.logoutTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.InventoryPageTest.removeProductFromInventoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTest (١).executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTest.validLoginTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LogoutTest (١).executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LogoutTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LogoutTest.logoutTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ProductNameFromCartTest.checkoutFlowTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RemoveFromCartTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RemoveProductFromInventoryPageTest.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/NHA-4-036/Sauce_Demo&quot;
+  }
+}</component>
+  <component name="RunManager" selected="TestNG.InventoryPageTest">
+    <configuration name="CartTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Sauce_Demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwagLabs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SwagLabs" />
+      <option name="MAIN_CLASS_NAME" value="SwagLabs.CartTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckoutTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Sauce_Demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwagLabs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SwagLabs" />
+      <option name="MAIN_CLASS_NAME" value="SwagLabs.CheckoutTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryPageTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Sauce_Demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwagLabs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SwagLabs" />
+      <option name="MAIN_CLASS_NAME" value="SwagLabs.InventoryPageTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryPageTest.logoutTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Sauce_Demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwagLabs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SwagLabs" />
+      <option name="MAIN_CLASS_NAME" value="SwagLabs.InventoryPageTest" />
+      <option name="METHOD_NAME" value="logoutTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryPageTest.removeProductFromInventoryTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Sauce_Demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwagLabs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SwagLabs" />
+      <option name="MAIN_CLASS_NAME" value="SwagLabs.InventoryPageTest" />
+      <option name="METHOD_NAME" value="removeProductFromInventoryTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.InventoryPageTest" />
+        <item itemvalue="TestNG.CheckoutTest" />
+        <item itemvalue="TestNG.CartTest" />
+        <item itemvalue="TestNG.InventoryPageTest.removeProductFromInventoryTest" />
+        <item itemvalue="TestNG.InventoryPageTest.logoutTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5694f0c-9d09-4012-b156-1635faa800bc" name="Changes" comment="" />
+      <created>1779045980001</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1779045980001</updated>
+    </task>
+    <servers />
+  </component>
+</project>

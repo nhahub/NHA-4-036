@@ -4,8 +4,6 @@ import SwagLabs.utils.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import SwagLabs.utils.ElementActions;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 public class InventoryPage {
@@ -101,7 +99,15 @@ public class InventoryPage {
     }
 
     public void assert_Reset_App_State_is_clickable() {
-        Assert.assertTrue(Wait.wait_to_hide(driver, cartBadge));
+        try {
+            Boolean condition_1 = Wait.wait_to_hide(driver, cartBadge);
+            Boolean condition_2 = Wait.wait_to_hide(driver, removeFirstProductBtn);
+
+            Assert.assertTrue((condition_1 && condition_2));
+
+        } catch (Exception e) {
+            Assert.fail("Elements did not disappear: " + e.getMessage());
+        }
     }
 
     public void assert_successful_removal_from_cart() {

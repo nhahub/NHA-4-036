@@ -17,6 +17,16 @@ public class InventoryPageTests extends BaseTest {
     }
 
     @Test(priority = 2)
+    public void clickCartIconTest() {
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
+        // Add product to cart
+        inventoryPage.openCart();
+        inventoryPage.assert_cart_icon_is_clickable();
+    }
+
+    @Test(priority = 3)
     public void successful_burger_menu_existence_and_clickability() {
         // Valid Login
         loginPage.login("standard_user", "secret_sauce");
@@ -25,7 +35,7 @@ public class InventoryPageTests extends BaseTest {
         inventoryPage.assert_burger_menu_is_clickable();
     }
 
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void successful_all_items_existence_and_clickability() {
         // Valid Login
         loginPage.login("standard_user", "secret_sauce");
@@ -36,7 +46,7 @@ public class InventoryPageTests extends BaseTest {
         inventoryPage.assert_All_items_is_clickable();
     }
 
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void successful_About_existence_and_clickability() {
         // Valid Login
         loginPage.login("standard_user", "secret_sauce");
@@ -46,25 +56,15 @@ public class InventoryPageTests extends BaseTest {
         inventoryPage.assert_About_is_clickable();
     }
 
-    @Test(priority = 5)
-    public void addToCartTest() {
-        // Valid Login
-        loginPage.login("standard_user", "secret_sauce");
-        loginPage.assert_successful_Login();
-        // Add product to cart
-        inventoryPage.addFirstProductToCart();
-        inventoryPage.assert_successful_addition_to_cart();
-    }
-
     @Test(priority = 6)
-    public void removeProductFromInventoryTest() {
+    public void logoutTest() {
         // Valid Login
         loginPage.login("standard_user", "secret_sauce");
         loginPage.assert_successful_Login();
-        // Add product & go to cart
-        inventoryPage.addFirstProductToCart();
-        inventoryPage.removeFirstProductFromInventory();
-        inventoryPage.assert_successful_removal_from_cart();
+        // Logout
+        inventoryPage.clickMenu();
+        inventoryPage.clickLogout();
+        inventoryPage.assert_successful_Logout();
     }
 
     @Test(priority = 7)
@@ -77,26 +77,26 @@ public class InventoryPageTests extends BaseTest {
         inventoryPage.click_ResetAppState();
         inventoryPage.assert_Reset_App_State_is_clickable();
     }
-
+/*====================================================================================================================*/
     @Test(priority = 8)
-    public void logoutTest() {
-        // Valid Login
-        loginPage.login("standard_user", "secret_sauce");
-        loginPage.assert_successful_Login();
-        // Logout
-        inventoryPage.clickMenu();
-        inventoryPage.clickLogout();
-        inventoryPage.assert_successful_Logout();
-    }
-
-    @Test(priority = 9)
-    public void clickCartIconTest() {
+    public void addToCartTest() {
         // Valid Login
         loginPage.login("standard_user", "secret_sauce");
         loginPage.assert_successful_Login();
         // Add product to cart
-        inventoryPage.openCart();
-        inventoryPage.assert_cart_icon_is_clickable();
+        inventoryPage.addFirstProductToCart();
+        inventoryPage.assert_successful_addition_to_cart();
+    }
+
+    @Test(priority = 9)
+    public void removeProductFromInventoryTest() {
+        // Valid Login
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
+        // Add product & go to cart
+        inventoryPage.addFirstProductToCart();
+        inventoryPage.removeFirstProductFromInventory();
+        inventoryPage.assert_successful_removal_from_cart();
     }
 
     @BeforeMethod

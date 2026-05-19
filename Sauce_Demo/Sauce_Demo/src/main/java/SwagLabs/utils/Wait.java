@@ -1,6 +1,7 @@
 package SwagLabs.utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,8 +18,13 @@ public class Wait {
     }
 
     // wait for element to hide
-    public static Boolean wait_to_hide(WebDriver driver, By locator){
-        return new WebDriverWait(driver, Duration.ofSeconds(10)).until(driver1 -> driver.findElements(locator).isEmpty());
+    public static Boolean wait_to_hide(WebDriver driver, By locator) {
+        try {
+            return new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(driver1 -> driver.findElements(locator).isEmpty());
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
 
     //wait for element to be visible
