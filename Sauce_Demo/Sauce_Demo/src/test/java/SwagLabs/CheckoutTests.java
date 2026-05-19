@@ -56,8 +56,8 @@ public class CheckoutTests extends BaseTest {
         checkoutPage.assert_continueBtn_clickability();
 
         // Cancel order
-        checkoutPage.clickCancel();
-        checkoutPage.assert_click_Cancel();
+        checkoutOverviewPage.clickCancel();
+        checkoutOverviewPage.assert_click_Cancel();
     }
     @BeforeMethod
     @Override

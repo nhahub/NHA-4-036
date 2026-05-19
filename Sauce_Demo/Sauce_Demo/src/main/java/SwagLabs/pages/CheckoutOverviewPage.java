@@ -11,7 +11,9 @@ public class CheckoutOverviewPage {
 
     // Locators
     private final By finishBtn = By.id("finish");
+    private final By cancelBtn = By.id("cancel");
     private final By successMsg = By.className("complete-header");
+
 
     // constructor
     public CheckoutOverviewPage(WebDriver driver) {
@@ -23,8 +25,17 @@ public class CheckoutOverviewPage {
         ElementActions.click_element(driver, finishBtn);
     }
 
+    public void clickCancel() {
+        ElementActions.click_element(driver, cancelBtn);
+    }
+
     // Assertion
     public void assert_successful_checkout(){
         Assert.assertTrue(ElementActions.get_txt(driver, successMsg).contains("Thank you for your order"));
     }
+
+    public void assert_click_Cancel(){
+        Assert.assertEquals(driver.getCurrentUrl(), ("https://www.saucedemo.com/inventory.html"));
+    }
+
 }

@@ -15,7 +15,7 @@ public class CheckoutPage {
     private final By lastName = By.id("last-name");
     private final By postalCode = By.id("postal-code");
     private final By continueBtn = By.id("continue");
-    private final By cancelBtn = By.id("cancel");
+
 
     // constructor
     public CheckoutPage(WebDriver driver) {
@@ -33,16 +33,9 @@ public class CheckoutPage {
         ElementActions.click_element(driver, continueBtn);
     }
 
-    public void clickCancel() {
-        ElementActions.click_element(driver, cancelBtn);
-    }
-
     //Assertion
     public void assert_continueBtn_clickability(){
         Assert.assertEquals(driver.getCurrentUrl(), ("https://www.saucedemo.com/checkout-step-two.html"));
-    }
-    public void assert_click_Cancel(){
-        Assert.assertEquals(driver.getCurrentUrl(), ("https://www.saucedemo.com/inventory.html"));
     }
 
 }
