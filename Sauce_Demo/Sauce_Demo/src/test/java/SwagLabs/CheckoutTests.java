@@ -14,8 +14,8 @@ public class CheckoutTests extends BaseTest {
     public CheckoutPage checkoutPage;
     public CheckoutOverviewPage checkoutOverviewPage;
 
-    @Test
-    public void checkoutFlowTest() {
+    @Test(priority = 1)
+    public void checkoutFlowTest_till_end() {
         // Valid Login
         loginPage.login("standard_user", "secret_sauce");
         loginPage.assert_successful_Login();
@@ -37,8 +37,26 @@ public class CheckoutTests extends BaseTest {
         checkoutOverviewPage.assert_successful_checkout();
     }
 
-    @Test
-    public void testCancelCheckoutReturnsToCart(){
+    @Test(priority = 2)
+    public void checkoutFlowTest_but_cancel_from_checkout_step1() {
+        loginPage.login("standard_user", "secret_sauce");
+        loginPage.assert_successful_Login();
+
+        // Add product & go to cart
+        inventoryPage.addFirstProductToCart();
+        inventoryPage.openCart();
+        inventoryPage.assert_cart_icon_is_clickable();
+
+        cartPage.clickCheckout();
+        cartPage.assert_checkout_clickability();
+
+        // Cancel order from checkout step1
+        checkoutPage.clickCancel_from_checkOut_step1();
+        checkoutPage.assert_CancelBtn_from_checkOut_step1_clickability();
+    }
+
+    @Test(priority = 3)
+    public void checkoutFlowTest_but_cancel_from_checkout_step2(){
         // Valid Login
         loginPage.login("standard_user", "secret_sauce");
         loginPage.assert_successful_Login();
@@ -56,9 +74,10 @@ public class CheckoutTests extends BaseTest {
         checkoutPage.assert_continueBtn_clickability();
 
         // Cancel order
-        checkoutOverviewPage.clickCancel();
-        checkoutOverviewPage.assert_click_Cancel();
+        checkoutOverviewPage.clickCancel_from_checkOut_step2();
+        checkoutOverviewPage.assert_CancelBtn_from_checkOut_step2_clickability();
     }
+
     @BeforeMethod
     @Override
     public void SetUp() {

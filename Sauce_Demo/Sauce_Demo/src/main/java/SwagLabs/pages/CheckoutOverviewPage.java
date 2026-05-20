@@ -11,7 +11,7 @@ public class CheckoutOverviewPage {
 
     // Locators
     private final By finishBtn = By.id("finish");
-    private final By cancelBtn = By.id("cancel");
+    private final By cancelBtn2 = By.id("cancel");
     private final By successMsg = By.className("complete-header");
 
 
@@ -25,8 +25,8 @@ public class CheckoutOverviewPage {
         ElementActions.click_element(driver, finishBtn);
     }
 
-    public void clickCancel() {
-        ElementActions.click_element(driver, cancelBtn);
+    public void clickCancel_from_checkOut_step2() {
+        ElementActions.click_element(driver, cancelBtn2);
     }
 
     // Assertion
@@ -34,7 +34,7 @@ public class CheckoutOverviewPage {
         Assert.assertTrue(ElementActions.get_txt(driver, successMsg).contains("Thank you for your order"));
     }
 
-    public void assert_click_Cancel(){
+    public void assert_CancelBtn_from_checkOut_step2_clickability(){
         Assert.assertEquals(driver.getCurrentUrl(), ("https://www.saucedemo.com/inventory.html"));
     }
 
