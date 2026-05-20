@@ -1,11 +1,11 @@
 package SwagLabs;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
 
 public class LoginTests extends BaseTest {
-
 
     @Test(priority = 1)
     public void testLoginPageShowsSwagLabsTitle(){
@@ -35,4 +35,25 @@ public class LoginTests extends BaseTest {
         loginPage.login("standard_user", "");
         loginPage.assert_empty_password_field_Login();
     }
+
+    /*============================= Data Provider =============================*/
+/*
+    @DataProvider(name = "loginData")
+    public Object[][] loginData() {
+
+        return new Object[][]{
+                {"standard_user", "secret_sauce"},
+                {"problem_user", "secret_sauce"},
+                {"visual_user", "secret_sauce"},
+                {"performance_glitch_user", "secret_sauce"}
+        };
+    }
+
+    @Test(priority = 3, dataProvider = "loginData")
+    public void validLoginTest_with_data_provider(String username, String password) {
+
+        loginPage.login(username, password);
+        loginPage.assert_successful_Login();
+    }
+*/
 }
