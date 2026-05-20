@@ -27,6 +27,6 @@ Inside this repository, you will find all the documentation and test artifacts o
 
 ## A Word of Appreciation
 
-Thank you so much for your time and guidance during this period. We hope you like our work and find it reflective of our dedication to high-quality engineering standards! 🤍
+Thank you so much for your time and guidance during this period. We hope you like our work and find it reflective of our dedication to high-quality standards! 🤍
 
 *Best Regards,* *NHA-4-36 Team*,
